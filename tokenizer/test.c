@@ -7,21 +7,25 @@
 int main(){
   char aString[50];
   char **tVec;
-  int exit =0,i=0;
-
+int exit =0,i=0,count=0;
+//Prompt $ to ask for input
     write(1,"$\n",2);
-    // while(exit != 1){
+   
   scanf("%[^\n]%*c", aString);
-  printf("%s\n", aString);
   tVec= myToc(aString,' ');
-  
-  printf("%s\n",tVec[1]);
-  //printf("%c", aString[1]);
-  // printf("%s", "Continue? 1:No 0:Yes ");
-  // scanf("%s", &exit);
 
-  // }
+// While to print the tokens
+while(tVec[i]!='\0'){
+int j=0;
+char* t= tVec[i];
+// For to count the size of the words
+for(j=0; t[j]!= '\0';j++){
 
+}
+write(1,tVec[i],j);
+write(1,"\n",1);
+i++;
+}
     free(tVec);
   return 0;
 }

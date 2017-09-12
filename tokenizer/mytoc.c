@@ -3,14 +3,17 @@
 #include <stdlib.h>
 
 
+
+// Function to Copy a Strig into the Vector
 char *stringCopy(char *str, int len, int index){
-  char *aCopy = (char*) malloc(len +1);
-  
-  for(int i=index ; i<(len+i)-1;i++){
-    aCopy[i]= str[i];
+
+  char *aCopy = (char*) malloc(50);
+  int count=0;
+  for(int i=index ;i<(index+len) ;i++){
+    aCopy[count]= str[i];
+    count++;
   }
   aCopy[len]=0;
-  printf("******   %s\n" , aCopy);
   return aCopy;
 }
 
@@ -33,31 +36,39 @@ int numTokens(char* str){
 }
 
 
+//Function main for Toc
 char ** myToc(char* str, char delim){
-  // char *myString = "Hola Me LLamo Manuel Perro";
   int vSize,len=0, wCount=0, isSpace=1,index=0;
   wCount= numTokens(str);
   printf("Number of Tokens: %d\n", wCount);
    //Vector that will have all the tokens adress 
   char **tokenVec = (char**) calloc(wCount+1, sizeof(char*));
+  tokenVec[wCount]=0;
    int word=0;
-
    for(int i =0; str[i]!='\0'; i++){
-     if(str[i]==' '){
-       isSpace=1;
-     }
-     if(str[i]!=' '){
+       if(str[i]==' '){
+      isSpace=1;
+    }
+     if(isSpace==1 && str[i]!=' '){
+        word++;
+	index=i;
+	len=0;
+	isSpace=0;
+	//printf("Len: %d%c\n", len,str[i]);
+    }
+     if(isSpace==0 && str[i] !=' '){
        len++;
-       isSpace=0;
-       // printf("len is:   %d\n" , len);
+       
+       //printf("Len: %d%c\n", len,str[i]);
+        
      }
-     if(str[i]==' ' && len>0){
-       isSpace=1;
-      
-       tokenVec[word] = stringCopy(str,len,index);
-        printf("len is:   %d\n" , len);
-	word++;
-     }
+     if(isSpace==0 && str[i+1]==' '|| str[i+1]=='\0'){
+       
+       tokenVec[word-1]=(char*)malloc(len+1);
+        tokenVec[word-1]= stringCopy(str,len,index);
+          }
+   
+     
     
     tokenVec[wCount]= 0;
    } // end of FOR LOOP
