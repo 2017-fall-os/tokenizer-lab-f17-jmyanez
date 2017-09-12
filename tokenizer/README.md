@@ -11,4 +11,4 @@ To run this program go to tokenizer directory, Type make  to compile and create 
 
 
 Collaborations 
-During this lab i worked with: Danner Pacheco, to come up with a way to copy the strings into the vector, Ana Garcia helped me to understand how the copying of the tokens  should work and Sebastian Perez i helped him  with very minor debbuging stuff. 
+During this lab i worked with: Danner Pacheco, to come up with a way to copy the strings into the vector and printing, Ana Garcia helped me to understand how the copying of the tokens  should work and Sebastian Perez i helped him  with very minor debbuging stuff. 
